@@ -14,11 +14,10 @@ public class moveController : MonoBehaviour
     [SerializeField]
     Rigidbody rigidBody;
     Vector2 moveInput;
+
     bool jumpInput = false;
 
     float velocityY = 0;
-
-    bool isSliding = false;
 
     void Start()
     {
@@ -27,8 +26,6 @@ public class moveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 currentVelocity = rigidBody.velocity;
-        Vector3 targetVelocity;
 
         velocityY += Physics.gravity.y * Time.deltaTime;
 
@@ -38,20 +35,11 @@ public class moveController : MonoBehaviour
             velocityY = jumpForce;
             jumpInput = false;
         }
-        if (isSliding)
-        {
-             targetVelocity = Vector3.forward;
-        }
-        else
-        {
-            targetVelocity = new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce);
-            
-        }
 
         // find target velocity
-        // Vector3 currentVelocity = rigidBody.velocity;
-        // Vector3 targetVelocity;
-        // targetVelocity = new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce);
+        Vector3 currentVelocity = rigidBody.velocity;
+        Vector3 targetVelocity;
+        targetVelocity = new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce);
 
         // align direction
         targetVelocity = transform.TransformDirection(targetVelocity);
@@ -62,8 +50,6 @@ public class moveController : MonoBehaviour
 
         // add force
         rigidBody.AddForce(velocityChange, ForceMode.Impulse);
-
-
     }
 
     bool isGrounded()
@@ -82,16 +68,22 @@ public class moveController : MonoBehaviour
         jumpInput = true;
     }
 
+    void OnUse(InputValue value)
+    {
+
+    }
+
+
     void OnSlide(InputValue value)
     {
         if (value.Get<float>() == 1f)
         {
-            isSliding = true;
-            Debug.Log("bat");
+
+
         }
         else
         {
-            isSliding = false;
+
         }
     }
 }
