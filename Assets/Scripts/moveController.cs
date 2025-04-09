@@ -1,0 +1,97 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class moveController : MonoBehaviour
+{
+    [SerializeField]
+    float moveForce;
+    [SerializeField]
+    float jumpForce;
+    [SerializeField]
+    float RaycastFloorCheckLength;
+
+
+    [SerializeField]
+    Rigidbody rigidBody;
+    Vector2 moveInput;
+    bool jumpInput = false;
+
+    float velocityY = 0;
+
+    bool isSliding = false;
+
+    void Start()
+    {
+
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 currentVelocity = rigidBody.velocity;
+        Vector3 targetVelocity;
+
+        velocityY += Physics.gravity.y * Time.deltaTime;
+
+        velocityY = 0;
+        if (jumpInput && isGrounded())
+        {
+            velocityY = jumpForce;
+            jumpInput = false;
+        }
+        if (isSliding)
+        {
+             targetVelocity = Vector3.forward;
+        }
+        else
+        {
+            targetVelocity = new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce);
+            
+        }
+
+        // find target velocity
+        // Vector3 currentVelocity = rigidBody.velocity;
+        // Vector3 targetVelocity;
+        // targetVelocity = new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce);
+
+        // align direction
+        targetVelocity = transform.TransformDirection(targetVelocity);
+
+        // calculate forces
+        Vector3 velocityChange = targetVelocity - currentVelocity;
+        velocityChange = new Vector3(velocityChange.x, velocityY, velocityChange.z);
+
+        // add force
+        rigidBody.AddForce(velocityChange, ForceMode.Impulse);
+
+
+    }
+
+    bool isGrounded()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, RaycastFloorCheckLength)) return true;
+        else return false;
+    }
+
+    void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+    }
+
+    void OnJump(InputValue value)
+    {
+        jumpInput = true;
+    }
+
+    void OnSlide(InputValue value)
+    {
+        if (value.Get<float>() == 1f)
+        {
+            isSliding = true;
+            Debug.Log("bat");
+        }
+        else
+        {
+            isSliding = false;
+        }
+    }
+}
