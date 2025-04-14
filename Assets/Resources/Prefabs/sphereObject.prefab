@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6805788254162358972}
   - component: {fileID: 1373365995980491580}
   m_Layer: 0
-  m_Name: object
+  m_Name: sphereObject
   m_TagString: usable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,4 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d095c9def1ce22e46a0c5a0ee71f9044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPreFab: {fileID: 1720951494971638611}
+  objectPrefab: {fileID: 1720951494971638611}

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,8 +8,6 @@ public class lookController : MonoBehaviour
     Vector2 lookInput;
     [SerializeField]
     Vector2 sensitivity = Vector2.one;
-
-    public List<GameObject> inventory = new List<GameObject>();
 
     float xRotation = 0;
 
@@ -42,7 +39,7 @@ public class lookController : MonoBehaviour
         {
             if (hit.collider.CompareTag("usable"))
             {
-                hit.collider.GetComponent<UsableObejctController>().pickedUp(inventory);
+                hit.collider.GetComponent<UsableObejctController>().PickedUp(inventoryManager.inventory);
             }
         }
     }

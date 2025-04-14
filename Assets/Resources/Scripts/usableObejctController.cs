@@ -4,17 +4,17 @@ using UnityEngine;
 public class UsableObejctController : MonoBehaviour
 {
     [SerializeField]
-    GameObject objectPreFab;
+    GameObject objectPrefab;
 
-    public void pickedUp(List<GameObject> listToAdd)
+    public void PickedUp(List<GameObject> listToAdd)
     {
-        listToAdd.Add(objectPreFab);
+        listToAdd.Add(objectPrefab);
         Destroy(gameObject);
     }
 
     void Start()
     {
-
+        objectPrefab = Resources.Load<GameObject>("Prefabs/sphereObject");
     }
 
 
