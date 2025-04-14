@@ -68,22 +68,8 @@ public class moveController : MonoBehaviour
         jumpInput = true;
     }
 
-    void OnUse(InputValue value)
-    {
-
-    }
-
-
     void OnSlide(InputValue value)
     {
-        if (value.Get<float>() == 1f)
-        {
 
-
-        }
-        else
-        {
-
-        }
     }
 }

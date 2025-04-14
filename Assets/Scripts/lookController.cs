@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ public class lookController : MonoBehaviour
     Vector2 lookInput;
     [SerializeField]
     Vector2 sensitivity = Vector2.one;
+
+    public List<GameObject> inventory = new List<GameObject>();
 
     float xRotation = 0;
 
@@ -35,9 +38,12 @@ public class lookController : MonoBehaviour
     void OnUse(InputValue Value)
     {
         RaycastHit hit;
-        if (Physics.Raycast(head.transform.position, head.transform.forward, out hit,3))
+        if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, 3))
         {
-            print(hit);
+            if (hit.collider.CompareTag("usable"))
+            {
+                hit.collider.GetComponent<UsableObejctController>().pickedUp(inventory);
+            }
         }
     }
 }
