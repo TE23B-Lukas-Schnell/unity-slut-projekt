@@ -39,8 +39,9 @@ public class lookController : MonoBehaviour
         {
             if (hit.collider.CompareTag("usable"))
             {
-                hit.collider.GetComponent<UsableObejctController>().PickedUp(inventoryManager.inventory);
+                hit.collider.GetComponent<UsableObejctController>().PickedUp(GetComponent<inventoryManager>().inventory);
             }
         }
     }
+    
 }

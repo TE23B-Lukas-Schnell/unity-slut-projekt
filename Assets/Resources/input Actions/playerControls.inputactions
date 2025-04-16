@@ -51,13 +51,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Slide",
-                    "type": "Value",
-                    "id": "37b7279e-3341-46f3-aa59-25cb2793d5ee",
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "1b7de215-0cb3-4dcd-b1a0-e07ff2bfb0aa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -327,23 +327,23 @@
                 },
                 {
                     "name": "",
-                    "id": "2c8c668d-81cd-43fe-8c8d-ba5eff13d168",
-                    "path": "<Keyboard>/shift",
+                    "id": "70b1eec0-f624-45bf-8e58-2cc74e1237b5",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Slide",
+                    "action": "OpenInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "1db2f754-f345-4df3-b706-37ea5581104f",
-                    "path": "<Gamepad>/leftShoulder",
+                    "id": "150199d8-a366-4cb8-ae6f-f37d34f7595b",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Slide",
+                    "action": "OpenInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
