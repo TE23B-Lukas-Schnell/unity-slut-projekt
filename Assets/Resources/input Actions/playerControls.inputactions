@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "300a96db-5e19-438a-9053-0ac052acc61a",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -52,12 +52,12 @@
                 },
                 {
                     "name": "OpenInventory",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "1b7de215-0cb3-4dcd-b1a0-e07ff2bfb0aa",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

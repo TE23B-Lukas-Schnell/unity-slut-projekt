@@ -26,10 +26,9 @@ public class moveController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!isGrounded()) velocityY += Physics.gravity.y * Time.deltaTime;
+        else velocityY = 0;
 
-        velocityY += Physics.gravity.y * Time.deltaTime;
-
-        velocityY = 0;
         if (jumpInput && isGrounded())
         {
             velocityY = jumpForce;
@@ -49,7 +48,7 @@ public class moveController : MonoBehaviour
         velocityChange = new Vector3(velocityChange.x, velocityY, velocityChange.z);
 
         // add force
-        rigidBody.AddForce(velocityChange, ForceMode.Impulse);
+        rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
     bool isGrounded()

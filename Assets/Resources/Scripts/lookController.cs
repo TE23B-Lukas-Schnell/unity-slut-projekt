@@ -27,6 +27,7 @@ public class lookController : MonoBehaviour
         transform.Rotate(Vector3.up, lookInput.x * sensitivity.x);
         head.transform.Rotate(Vector3.right, lookInput.y * sensitivity.y);
     }
+    
     void OnLook(InputValue Value)
     {
         lookInput = Value.Get<Vector2>();
@@ -43,5 +44,5 @@ public class lookController : MonoBehaviour
             }
         }
     }
-    
+
 }
