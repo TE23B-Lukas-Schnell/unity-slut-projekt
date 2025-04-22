@@ -6,6 +6,9 @@ public class UsableObejctController : MonoBehaviour
     [SerializeField]
     GameObject objectPrefab;
 
+    [SerializeField]
+    string prefabFilePath;
+
     public void PickedUp(List<GameObject> listToAdd)
     {
         listToAdd.Add(objectPrefab);
@@ -14,7 +17,7 @@ public class UsableObejctController : MonoBehaviour
 
     void Start()
     {
-        objectPrefab = Resources.Load<GameObject>("Prefabs/sphereObject");
+        objectPrefab = Resources.Load<GameObject>(prefabFilePath);
     }
 
 

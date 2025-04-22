@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 1720951494971638611}
+  prefabFilePath: Prefabs/sphereObject

@@ -52,9 +52,9 @@
                 },
                 {
                     "name": "OpenInventory",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "1b7de215-0cb3-4dcd-b1a0-e07ff2bfb0aa",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -328,7 +328,7 @@
                 {
                     "name": "",
                     "id": "70b1eec0-f624-45bf-8e58-2cc74e1237b5",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
@@ -339,7 +339,7 @@
                 {
                     "name": "",
                     "id": "150199d8-a366-4cb8-ae6f-f37d34f7595b",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

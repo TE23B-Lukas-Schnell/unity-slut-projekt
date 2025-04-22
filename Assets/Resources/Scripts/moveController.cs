@@ -9,8 +9,6 @@ public class moveController : MonoBehaviour
     float jumpForce;
     [SerializeField]
     float RaycastFloorCheckLength;
-
-
     [SerializeField]
     Rigidbody rigidBody;
     Vector2 moveInput;
@@ -26,7 +24,7 @@ public class moveController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(!isGrounded()) velocityY += Physics.gravity.y * Time.deltaTime;
+        if (!isGrounded()) velocityY += Physics.gravity.y * Time.deltaTime;
         else velocityY = 0;
 
         if (jumpInput && isGrounded())
@@ -35,19 +33,10 @@ public class moveController : MonoBehaviour
             jumpInput = false;
         }
 
-        // find target velocity
-        Vector3 currentVelocity = rigidBody.velocity;
-        Vector3 targetVelocity;
-        targetVelocity = new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce);
+        Vector3 targetVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce));
+        Vector3 velocityChange = targetVelocity - rigidBody.velocity;
+        velocityChange.y = velocityY;
 
-        // align direction
-        targetVelocity = transform.TransformDirection(targetVelocity);
-
-        // calculate forces
-        Vector3 velocityChange = targetVelocity - currentVelocity;
-        velocityChange = new Vector3(velocityChange.x, velocityY, velocityChange.z);
-
-        // add force
         rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
     }
 
