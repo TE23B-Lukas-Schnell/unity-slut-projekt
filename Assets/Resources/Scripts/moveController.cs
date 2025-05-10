@@ -12,32 +12,43 @@ public class moveController : MonoBehaviour
     [SerializeField]
     Rigidbody rigidBody;
     Vector2 moveInput;
+    [SerializeField]
+    Camera head;
 
     bool jumpInput = false;
+    bool ragdoll = false;
 
     float velocityY = 0;
 
     void Start()
     {
-
     }
 
     void FixedUpdate()
     {
-        if (!isGrounded()) velocityY += Physics.gravity.y * Time.deltaTime;
-        else velocityY = 0;
 
-        if (jumpInput && isGrounded())
+        if (ragdoll)
         {
-            velocityY = jumpForce;
-            jumpInput = false;
+            rigidBody.constraints = RigidbodyConstraints.None;
         }
+        else
+        {
+            rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+            if (!isGrounded()) velocityY += Physics.gravity.y * Time.deltaTime;
+            else velocityY = 0;
 
-        Vector3 targetVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce));
-        Vector3 velocityChange = targetVelocity - rigidBody.velocity;
-        velocityChange.y = velocityY;
+            if (jumpInput && isGrounded())
+            {
+                velocityY = jumpForce;
+                jumpInput = false;
+            }
 
-        rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
+            Vector3 targetVelocity = transform.TransformDirection(new Vector3(moveInput.x * moveForce, velocityY, moveInput.y * moveForce));
+            Vector3 velocityChange = targetVelocity - rigidBody.velocity;
+
+            rigidBody.AddForce(velocityChange, ForceMode.VelocityChange);
+    
+        }
     }
 
     bool isGrounded()
@@ -56,8 +67,13 @@ public class moveController : MonoBehaviour
         jumpInput = true;
     }
 
-    void OnSlide(InputValue value)
+    void OnRagdoll(InputValue value)
     {
-
+        ragdoll = !ragdoll;
+        if (!ragdoll)
+        {
+            rigidBody.rotation = Quaternion.Euler(0f, head.transform.eulerAngles.y, 0f); // gör så att spelaren kollar åt rätt håll innan man frysar rotationen igen
+            //  rigidBody.rotation = Quaternion.Euler(0f, head.transform.eulerAngles.y, head.transform.eulerAngles.z);
+        }
     }
 }

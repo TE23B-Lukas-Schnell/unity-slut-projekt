@@ -15,12 +15,10 @@ public class inventoryManager : MonoBehaviour
     TMP_Text inventoryHud;
     [SerializeField]
     Vector3 itemSpawnOffset;
+    [SerializeField]
+    Camera head;
+    
     string inventoryText;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -51,7 +49,7 @@ public class inventoryManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
-                    Instantiate(inventory[i], transform.position + itemSpawnOffset, Quaternion.identity);
+                    Instantiate(inventory[i], head.transform.position + itemSpawnOffset, Quaternion.identity);
                     inventory.Remove(inventory[i]);
                     break;
                 }

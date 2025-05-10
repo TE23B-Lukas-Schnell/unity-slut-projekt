@@ -9,6 +9,7 @@ public class UsableObejctController : MonoBehaviour
     [SerializeField]
     string prefabFilePath;
 
+    //kallas när man ska plocka upp ett föremål
     public void PickedUp(List<GameObject> listToAdd)
     {
         listToAdd.Add(objectPrefab);

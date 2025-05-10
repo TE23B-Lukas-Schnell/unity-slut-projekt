@@ -8,6 +8,8 @@ public class lookController : MonoBehaviour
     Vector2 lookInput;
     [SerializeField]
     Vector2 sensitivity = Vector2.one;
+    [SerializeField]
+    float pickupRange;
 
     float xRotation = 0;
 
@@ -36,7 +38,7 @@ public class lookController : MonoBehaviour
     void OnUse(InputValue Value)
     {
         RaycastHit hit;
-        if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, 3))
+        if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, pickupRange))
         {
             if (hit.collider.CompareTag("usable"))
             {
