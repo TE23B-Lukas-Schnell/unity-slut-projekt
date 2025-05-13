@@ -22,6 +22,7 @@ public class moveController : MonoBehaviour
 
     void Start()
     {
+        
     }
 
     void FixedUpdate()
@@ -67,13 +68,12 @@ public class moveController : MonoBehaviour
         jumpInput = true;
     }
 
-    void OnRagdoll(InputValue value)
+    void OnRagdoll()
     {
         ragdoll = !ragdoll;
         if (!ragdoll)
         {
-            rigidBody.rotation = Quaternion.Euler(0f, head.transform.eulerAngles.y, 0f); // gör så att spelaren kollar åt rätt håll innan man frysar rotationen igen
-            //  rigidBody.rotation = Quaternion.Euler(0f, head.transform.eulerAngles.y, head.transform.eulerAngles.z);
+            rigidBody.rotation = Quaternion.Euler(0f, 0f, 0f); // gör så att spelaren kollar åt rätt håll innan man frysar rotationen igen
         }
     }
 }

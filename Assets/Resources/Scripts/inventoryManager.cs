@@ -14,10 +14,10 @@ public class inventoryManager : MonoBehaviour
     [SerializeField]
     TMP_Text inventoryHud;
     [SerializeField]
-    Vector3 itemSpawnOffset;
-    [SerializeField]
     Camera head;
-    
+    [SerializeField]
+    float itemPlaceLength;
+
     string inventoryText;
 
     void Update()
@@ -49,7 +49,18 @@ public class inventoryManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
-                    Instantiate(inventory[i], head.transform.position + itemSpawnOffset, Quaternion.identity);
+
+                    // dags att fixa<
+                    RaycastHit hit;
+                    if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, itemPlaceLength)) 
+                    {
+                        Instantiate(inventory[i], hit.point - head.transform.position + head.transform.forward * itemPlaceLength, head.transform.rotation);
+                    }
+                    else
+                    {
+                        Instantiate(inventory[i], head.transform.position + head.transform.forward * itemPlaceLength, head.transform.rotation);
+                    }
+                    print(hit.point);
                     inventory.Remove(inventory[i]);
                     break;
                 }

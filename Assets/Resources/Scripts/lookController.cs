@@ -10,6 +10,8 @@ public class lookController : MonoBehaviour
     Vector2 sensitivity = Vector2.one;
     [SerializeField]
     float pickupRange;
+    [SerializeField]
+    GameObject rocket;
 
     float xRotation = 0;
 
@@ -29,7 +31,7 @@ public class lookController : MonoBehaviour
         transform.Rotate(Vector3.up, lookInput.x * sensitivity.x);
         head.transform.Rotate(Vector3.right, lookInput.y * sensitivity.y);
     }
-    
+
     void OnLook(InputValue Value)
     {
         lookInput = Value.Get<Vector2>();
@@ -47,4 +49,8 @@ public class lookController : MonoBehaviour
         }
     }
 
+    void OnFireRocket()
+    {
+        Instantiate(rocket, head.transform.position + head.transform.forward * 0.5f, head.transform.rotation);
+    }
 }
