@@ -50,11 +50,12 @@ public class inventoryManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 {
 
-                    // dags att fixa<
+                    // dags att fixa
                     RaycastHit hit;
                     if (Physics.Raycast(head.transform.position, head.transform.forward, out hit, itemPlaceLength)) 
                     {
-                        Instantiate(inventory[i], hit.point - head.transform.position + head.transform.forward * itemPlaceLength, head.transform.rotation);
+                        Instantiate(inventory[i], hit.point - (head.transform.position + head.transform.forward), head.transform.rotation);
+                        print(hit.point - (head.transform.position + head.transform.forward));
                     }
                     else
                     {

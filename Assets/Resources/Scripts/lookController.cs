@@ -12,6 +12,10 @@ public class lookController : MonoBehaviour
     float pickupRange;
     [SerializeField]
     GameObject rocket;
+    [SerializeField]
+    float rocketLauncherCooldown;
+    float rocketLauncherTimer;
+
 
     float xRotation = 0;
 
@@ -23,6 +27,7 @@ public class lookController : MonoBehaviour
 
     void Update()
     {
+        rocketLauncherTimer -= Time.deltaTime;
         xRotation += lookInput.y * sensitivity.y;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
 
@@ -51,6 +56,10 @@ public class lookController : MonoBehaviour
 
     void OnFireRocket()
     {
-        Instantiate(rocket, head.transform.position + head.transform.forward * 0.5f, head.transform.rotation);
+        if (rocketLauncherTimer <= 0)
+        {
+            Instantiate(rocket, head.transform.position + head.transform.forward * 0.5f, head.transform.rotation);
+            rocketLauncherTimer = rocketLauncherCooldown;
+        }   
     }
 }
