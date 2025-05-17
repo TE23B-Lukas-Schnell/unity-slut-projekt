@@ -564,6 +564,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1201333856}
+    - target: {fileID: 6899474866259060249, guid: 0dc21110cfe62404da7869a1e53f5b5a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1386
+      objectReference: {fileID: 0}
     - target: {fileID: 7046906681230356762, guid: 0dc21110cfe62404da7869a1e53f5b5a,
         type: 3}
       propertyPath: m_Name
@@ -587,6 +592,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1760762392}
+    - target: {fileID: 744594810542443132, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 2232
+      objectReference: {fileID: 0}
     - target: {fileID: 2724408788570639851, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
         type: 3}
       propertyPath: m_Name
@@ -1353,6 +1363,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 665760712}
+    - target: {fileID: 744594810542443132, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 2232
+      objectReference: {fileID: 0}
     - target: {fileID: 2724408788570639851, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
         type: 3}
       propertyPath: m_Name
@@ -1538,6 +1553,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 30882463}
+    - target: {fileID: 744594810542443132, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 2232
+      objectReference: {fileID: 0}
     - target: {fileID: 2724408788570639851, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
         type: 3}
       propertyPath: m_Name
@@ -1681,6 +1701,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 531612114}
+    - target: {fileID: 6899474866259060249, guid: 0dc21110cfe62404da7869a1e53f5b5a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1386
+      objectReference: {fileID: 0}
     - target: {fileID: 7046906681230356762, guid: 0dc21110cfe62404da7869a1e53f5b5a,
         type: 3}
       propertyPath: m_Name
@@ -2256,6 +2281,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1531601480}
+    - target: {fileID: 6899474866259060249, guid: 0dc21110cfe62404da7869a1e53f5b5a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1386
+      objectReference: {fileID: 0}
     - target: {fileID: 7046906681230356762, guid: 0dc21110cfe62404da7869a1e53f5b5a,
         type: 3}
       propertyPath: m_Name
@@ -2407,6 +2437,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 358320258}
+    - target: {fileID: 6899474866259060249, guid: 0dc21110cfe62404da7869a1e53f5b5a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 1386
+      objectReference: {fileID: 0}
     - target: {fileID: 7046906681230356762, guid: 0dc21110cfe62404da7869a1e53f5b5a,
         type: 3}
       propertyPath: m_Name
@@ -2522,6 +2557,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 316215795}
+    - target: {fileID: 744594810542443132, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 2232
+      objectReference: {fileID: 0}
     - target: {fileID: 2724408788570639851, guid: 6c21f126e3fdf6b4dab07ee080593d8a,
         type: 3}
       propertyPath: m_Name
@@ -4045,7 +4085,7 @@ GameObject:
   - component: {fileID: 1827487235}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4250,6 +4290,7 @@ MonoBehaviour:
   sensitivity: {x: 0.2, y: 0.2}
   pickupRange: 3
   rocket: {fileID: 223711550175119435, guid: 6db973ff60bc9b9418f55518526e179b, type: 3}
+  rocketLauncherCooldown: 0.9
 --- !u!54 &1827487233
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4309,7 +4350,7 @@ MonoBehaviour:
   inventory: []
   inventoryHud: {fileID: 2022366989}
   head: {fileID: 963194227}
-  itemPlaceLength: 0
+  itemPlaceLength: 3
 --- !u!43 &1873566025
 Mesh:
   m_ObjectHideFlags: 0
